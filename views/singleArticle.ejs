@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h2><%= article.title%></h2>
+    <p><%= article.description%></p>
+    <a href="/articles">Back</a>
+
+    <!-- comment -->
+    <form action="/articles/<%= article.id %>/comments" method="POST">
+        <input type="text" name="content" id="" placeholder="Add Comment">
+        <input type="submit" name="" id="" value="submit">
+    </form>
+
+    <% comments.forEach(comment => { %>
+        <p><%= comment.content %></p>
+        <a href="/articles/<%= article.id %>/<%= comment.id %>/edit"><input type="submit" name="" id="" value="Edit Comment"></a>
+        <a href="/articles/<%= article.id %>/<%= comment.id %>/delete"><input type="submit" name="" id="" value="Delete Comment"></a>
+    <% })%>
+</body>
+</html>
